@@ -1,0 +1,37 @@
+def sort_inc(num):
+  for my_number in range(len(num)-1,0,-1):
+    for i in range(my_number):
+      if num[i]>num[i+1]:
+        temp = num[i]
+        num[i] = num[i+1]
+        num[i+1] = temp
+  return num
+
+def sort_dec(num):
+  for desc in range(len(num)-1,0,-1):
+    for i in range(desc):
+      if num[i]<num[i+1]:
+        des = num[i+1]
+        num[i+1] = num[i]
+        num[i] = des
+  return num
+
+def re_arrange(num):
+  sort_num = []
+  arr = sort_inc(num)
+  sort_one = arr[0:int((len(arr)+1)/2)]
+  sort_two = arr[int((len(arr)+1)/2):]
+  sort_two = sort_dec(sort_two)
+  sort_num = sort_one + sort_two
+  return sort_num
+
+def arr_two(num):
+  num_sort = []
+  num_sort = (num[1],num[-2])
+
+  return num_sort
+
+num = [35,23,67,50,32,53,19,49]
+test = sort_inc(num)
+print(re_arrange(num))
+print(arr_two(test))
